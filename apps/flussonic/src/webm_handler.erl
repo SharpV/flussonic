@@ -6,7 +6,7 @@
 -include_lib("erlmedia/include/media_info.hrl").
 
 
--export([init/3, handle/2, terminate/3]).
+-export([init/3, handle/2, terminate/2, terminate/3]).
 -export([read_loop/2, write_loop/1]).
 
 -record(webm, {
@@ -122,8 +122,8 @@ send_frames(#webm{buffer = Bin, stream = Stream, dts = DTS} = Webm) ->
       Webm
   end.
 
-
-
+terminate(_,_) ->
+  ok.
 
 terminate(_,_,_) ->
   ok.

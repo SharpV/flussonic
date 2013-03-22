@@ -3,7 +3,7 @@
 
 
 -behaviour(cowboy_http_handler).
--export([init/3, handle/2, terminate/3]).
+-export([init/3, handle/2, terminate/2, terminate/3]).
 
 init({_Any,http}, Req, Opts) ->
   {ok, Req, Opts}.
@@ -11,6 +11,8 @@ init({_Any,http}, Req, Opts) ->
 terminate(_,_, _) ->
   ok.
 
+terminate(_, _) ->
+  ok.
 
 handle(Req, Opts) ->
   Path = case proplists:get_value(file, Opts) of
