@@ -17,6 +17,9 @@ install:
 dep:
 	./rebar get-deps
 
+ct:
+	ct_run -pa `pwd`/apps/*/ebin -pa `pwd`/deps/*/ebin -dir apps/*/test -logdir logs/
+
 test:
 	./rebar eunit skip_deps=true
 
