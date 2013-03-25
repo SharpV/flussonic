@@ -14,7 +14,8 @@ install:
 	cp COPYING $(DESTDIR)/usr/share/doc/flussonic/copyright
 	cp priv/sample/flussonic.conf $(DESTDIR)/etc/flussonic/flussonic.conf
 
-
+dep:
+	./rebar get-deps
 
 test:
 	./rebar eunit skip_deps=true
